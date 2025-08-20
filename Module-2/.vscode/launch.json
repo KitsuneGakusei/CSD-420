@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch StudentRecursiveSort",
+            "request": "launch",
+            "mainClass": "StudentRecursiveSort",
+            "cwd": "C:/Users/K1tt3/csd/CSD-420/Module-2"
+        }
+    ]
+}
