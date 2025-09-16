@@ -1,0 +1,4 @@
+*.class
+.vscode/
+run-test.ps1
+ .settings.json
