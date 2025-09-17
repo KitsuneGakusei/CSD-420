@@ -1,0 +1,44 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "JavaFX: Compile (active file folder)",
+      "type": "shell",
+      "options": { "cwd": "${fileDirname}" },
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "javac --module-path \"C:/Users/K1tt3/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics *.java"
+      ],
+      "problemMatcher": "$javac"
+    },
+    {
+      "label": "JavaFX: Run (active main)",
+      "type": "shell",
+      "dependsOn": "JavaFX: Compile (active file folder)",
+      "options": { "cwd": "${fileDirname}" },
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "java --module-path \"C:/Users/K1tt3/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics ${fileBasenameNoExtension}"
+      ],
+      "group": { "kind": "build", "isDefault": true },   // <-- make THIS the default build task
+      "detail": "Compile & Run JavaFX in the active file's folder"
+    },
+    {
+      "label": "Java: Run tests (active file folder, no JavaFX)",
+      "type": "shell",
+      "options": { "cwd": "${fileDirname}" },
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-Command",
+        "javac *.java; java -ea CrystalThreeThreadsTest"
+      ],
+      "group": "test",
+      "detail": "Compile & run simple asserts"
+    }
+  ]
+}
